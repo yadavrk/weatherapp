@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Please clone the code from github repository https://github.com/yadavrk/weatherapp .
+2. Open terminal and go to weatherapp then run 'bundle install' command.
+3. To start rails server please run 'rails server' command.
+4. Please open app in browser http://localhost:3000 .
+5. To run test case please run 'rails test test/controllers/weather_search_controller_test.rb' command in terminal

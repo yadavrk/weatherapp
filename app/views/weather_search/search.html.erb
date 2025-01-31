@@ -1,0 +1,37 @@
+<%= form_with url: "/", method: :get, class: "row g-3 mt-4" do |form| %>
+  <div class="col-auto">
+    <%= form.label :query, "Address:", class: "col-sm-2 col-form-label"%>
+  </div>
+  <div class="col-sm-8">
+    <%= form.search_field :query, value: @address, placeholder: "Please enter address", required: true, class: "form-control"  %>
+  </div>
+  <div class="col-auto">
+    <%= form.submit "Search", class: "btn btn-primary mb-3" %>
+  </div>
+<% end %>
+
+<% if @details %>
+  <% if @cached %>
+    <p class="fw-bold">Pulled from cache data</p>
+  <% end %>
+  <p>Current Temperature: <%= @details['current']['temperature_2m'] %> <%= @details['current_units']['temperature_2m'] %></p>
+  <p>Minimum Temperature: <%= @details['daily']['temperature_2m_min'].first %> <%= @details['daily_units']['temperature_2m_min'] %></p>
+  <p>Maximum Temperature: <%= @details['daily']['temperature_2m_max'].first %> <%= @details['daily_units']['temperature_2m_max'] %></p>
+  <h2>Temperature Forecast</h2>
+
+  <table class="table caption-top">
+    <tr>
+      <th>Date</th>
+      <th>Maximum Temperature</th>
+      <th>Minimum Temperature</th>
+    </tr>
+    <% @details['daily']['time'].each_with_index do |d, i| %>
+      <tr>
+        <td><%= d %></td>
+        <td><%= @details['daily']['temperature_2m_max'][i] %> <%= @details['daily_units']['temperature_2m_max'] %></td>
+        <td><%= @details['daily']['temperature_2m_min'][i] %> <%= @details['daily_units']['temperature_2m_min'] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+

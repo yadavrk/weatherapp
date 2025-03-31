@@ -44,7 +44,7 @@ gem "thruster", require: false
 gem 'geocoder', '~> 1.8', '>= 1.8.5'
 
 # makes consuming restful web services
-gem 'httparty', '~> 0.22.0'
+gem 'httparty', '~> 0.23.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
